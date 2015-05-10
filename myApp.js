@@ -18,10 +18,17 @@ angular.module('myApp',[])
 			if($scope.myForm.$valid) {
 				console.log("The form went through");
 
+				//converting to percentages or decimals
+				$scope.taxrateConverted = $scope.taxrate / 100;
+				console.log($scope.taxrateConverted);
+				$scope.tippercentConverted = $scope.tippercent / 100;
+				console.log($scope.tippercentConverted);
+				
+
 				//edit customer charges
-				$scope.subtotal = ($scope.baseprice * $scope.taxrate);
-				$scope.tip = $scope.tippercent *  ($scope.baseprice * $scope.taxrate);
-				$scope.total = ($scope.baseprice * $scope.taxrate) + ($scope.tippercent *  ($scope.baseprice * $scope.taxrate));
+				$scope.subtotal = ($scope.baseprice * $scope.taxrateConverted) + $scope.baseprice;
+				$scope.tip = $scope.tippercentConverted *  ($scope.subtotal);
+				$scope.total = $scope.subtotal + $scope.tip;
 
 				//add to my earnings
 				$scope.totalTip = $scope.total + $scope.totalTip;
