@@ -1,49 +1,63 @@
 angular.module('myApp',[])
 
 	.controller('myCtrl',function($scope){
-		// $scope.jobTitle = "Job title";
-		// $scope.femaleName = "Female name";
-		// $scope.celebrity = "Celebrity";
 
-		// $scope.uselessSkill = "Useless skill";
-		// $scope.tediousTask = "Tedious task";
-		// $scope.dirtyTask = "Dirty task";
-
-		// $scope.adjective = "Adjective";
-		// $scope.obnxCelebrity = "Obnoxious celebrity";
-		//$scope.hugeNumber = "Huge number";
-
+		//starting values
 		$scope.myForm = {};
-		$scope.view = "words";
+		$scope.subtotal = 0;
+		$scope.tip = 0;
+		$scope.total = 0;
 
-		$scope.processForm = function(){
+		$scope.totalTip = 0;
+		$scope.totalMeals = 0;
+		$scope.totalAvgTip = 0;
+
+
+		$scope.submitForm = function(){
 			console.log("Test");
 			if($scope.myForm.$valid) {
-				console.log("The form is valid");
-				$scope.view = "story";
-			}
-			else {
-				console.log("The form is invalid");
+				console.log("The form went through");
+
+				//edit customer charges
+				$scope.subtotal = ($scope.baseprice * $scope.taxrate);
+				$scope.tip = $scope.tippercent *  ($scope.baseprice * $scope.taxrate);
+				$scope.total = ($scope.baseprice * $scope.taxrate) + ($scope.tippercent *  ($scope.baseprice * $scope.taxrate));
+
+				//add to my earnings
+				$scope.totalTip = $scope.total + $scope.totalTip;
+				$scope.totalMeals = 1 + $scope.totalMeals;
+				$scope.totalAvgTip = $scope.totalTip / $scope.totalMeals;
+
+			}else {
+				console.log("The form is invalid and did not go through");
 				return false;
 			}
 			
 		};
 
-		$scope.reset = function() {
-			console.log("reset");
-			$scope.jobTitle = "";
-			$scope.femaleName = "";
-			$scope.celebrity = "";
+		$scope.cancelForm = function() {
+			//reset input values
+			$scope.baseprice = "";
+			$scope.taxrate = "";
+			$scope.tippercent = "";
 
-			$scope.uselessSkill = "";
-			$scope.tediousTask = "";
-			$scope.dirtyTask = "";
+		};
 
-			$scope.adjective = "";
-			$scope.obnxCelebrity = "";
-			$scope.hugeNumber = "";
-			$scope.error= "";
-			$scope.view = "words";
+		$scope.resetApp = function() {
+			//reset all values
+			$scope.baseprice = "";
+			$scope.taxrate = "";
+			$scope.tippercent = "";
+
+			$scope.subtotal = "";
+			$scope.tip = "";
+			$scope.total = "";
+
+			$scope.totalTip = "";
+			$scope.totalMeals = "";
+			$scope.totalAvgTip = "";
+
+			$scope.myForm.$setPristine();
 
 		};
 
