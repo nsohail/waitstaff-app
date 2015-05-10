@@ -31,7 +31,7 @@ angular.module('myApp',[])
 				$scope.total = $scope.subtotal + $scope.tip;
 
 				//add to my earnings
-				$scope.totalTip = $scope.total + $scope.totalTip;
+				$scope.totalTip = $scope.tip + $scope.totalTip;
 				$scope.totalMeals = 1 + $scope.totalMeals;
 				$scope.totalAvgTip = $scope.totalTip / $scope.totalMeals;
 
