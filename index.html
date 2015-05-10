@@ -10,12 +10,15 @@
 
       <script src="myApp.js"></script>
 
+      <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
 
 	<!--Meal details-->
 	<!--User inputs info here-->
+<div class="wrapper">
 
 	<div class="box details">
 		<form name="myForm" ng-submit="submitForm()">
@@ -37,38 +40,41 @@
 
 	</div>
 
-	<!--Customer charges-->
+	<div class="column-wrap">
 
-	<div class="box charges">
+		<!--Customer charges-->
 
-		<div class="title">Customer Charges</div>
+		<div class="subbox charges">
 
-		<div class="input-title">Subtotal {{subtotal | currency}}</div>
-		<div class="input-title">Tip {{tip | currency}}</div>
-		<div class="total-section">
-			<div class="input-title">Total {{total | currency}}</div>
+			<div class="title">Customer Charges</div>
+
+			<div class="input-title">Subtotal {{subtotal | currency}}</div>
+			<div class="input-title">Tip {{tip | currency}}</div>
+			<div class="total-section">
+				<div class="input-title">Total {{total | currency}}</div>
+			</div>
+
+
 		</div>
 
 
-	</div>
+		<!--My earnings info-->
 
+		<div class="subbox earnings">
 
-	<!--My earnings info-->
+			<div class="title">My Earnings Info</div>
+			<div class="input-title">Tip Total: {{totalTip | currency}}</div>
+			<div class="input-title">Meal Count: {{totalMeals}}</div>
+			<div class="input-title">Average Tip Per Meal: {{totalAvgTip | currency}}</div>
 
-	<div class="box earnings">
-
-		<div class="title">My Earnings Info</div>
-		<div class="input-title">Tip Total: {{totalTip | currency}}</div>
-		<div class="input-title">Meal Count: {{totalMeals}}</div>
-		<div class="input-title">Average Tip Per Meal: {{totalAvgTip | currency}}</div>
-
+		</div>
 	</div>
 
 	<div class="reset-area">
 		<input type="button" id="reset" value="Reset" ng-click="resetApp()">
 	</div>
 
-
+</div>
 	
 </body>
 
