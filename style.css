@@ -1,7 +1,5 @@
 body {
 	font-family: 'Comfortaa', cursive;
-	background: url(images/background.jpg);
-	background-size: cover;
 }
 
 .box {
@@ -31,10 +29,8 @@ body {
   text-align: center;
   padding: 20px 20px 80px 20px;
   margin: auto;
-
-  margin-right: 30px;
   float: left;
-  margin-top: 84px;
+  margin-bottom: 20px;
 }
 
 
@@ -44,25 +40,23 @@ input#submit {
 
 
 .reset-area {
-	clear: both;
-	text-align: right;
-	width: 675px;
-	margin: auto;
+	text-align: center;
+  margin: auto;
 }
 
 
 .subbox {
 	width: 250px;
-  	height: 180px;
-  	text-align: center;
-  	padding: 20px;
-  	margin-bottom: 10px;
-  	float: left;
-  	margin-right: 10px;
-
-  	border: 3px solid rgb(140, 255, 198);
-  	background: rgba(36, 36, 48, 0.80);
-  	color: white;
+	height: 180px;
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 10px;
+	float: left;
+	margin-right: 10px;
+  margin-left: 22px;
+	border: 3px solid rgb(140, 255, 198);
+	background: rgba(36, 36, 48, 0.80);
+	color: white;
 }
 
 .subbox .charges {
@@ -72,9 +66,9 @@ input#submit {
 
 .column-wrap {
   	margin: auto;
-  	float: left;
-  	width: 300px;
+  	width: 346px;
   	height: 458px;
+    margin-top: 50px;
 }
 
 
@@ -104,8 +98,26 @@ input[id="reset"]:hover, input[type="submit"]:hover, input[type="button"]:hover 
 
 .wrapper {
 	width: 676px;
-  	margin: auto;
+  margin: auto;
 	height: 90%;
 	margin-top: 5%;
 	margin-bottom: 5%;
+  text-align: Center;
+}
+
+
+.wrapper > a {
+  text-decoration: none;
+  color: rgb(211, 211, 211);
+  padding: 10px;
+  letter-spacing: 1px;
+}
+
+.wrapper > a:hover {
+  color: rgb(121, 232, 177);
+}
+
+/*extra styles*/
+h1 {
+  text-align: center;
 }

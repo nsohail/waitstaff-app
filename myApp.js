@@ -1,6 +1,20 @@
-angular.module('myApp',[])
+angular.module('myApp',['ngRoute'])
+	.config(['$routeProvider', function($routeProvider){
+		$routeProvider.when('/', {
+			templateUrl: 'views/home.html'
+		})
+		.when('/new-meal', {
+			templateUrl: 'views/newmeal.html',
+			controller: 'appCtrl'
+		})
+		.when('/my-earnings', {
+			templateUrl: 'views/earnings.html',
+			controller: 'appCtrl'
+		})
+		.otherwise('/');
+	}])
 
-	.controller('myCtrl',function($scope){
+	.controller('appCtrl',function($scope){
 
 		//starting values
 		$scope.myForm = {};
@@ -43,6 +57,7 @@ angular.module('myApp',[])
 		};
 
 		$scope.cancelForm = function() {
+			console.log("cancel");
 			//reset input values
 			$scope.baseprice = "";
 			$scope.taxrate = "";
@@ -61,10 +76,8 @@ angular.module('myApp',[])
 			$scope.total = "";
 
 			$scope.totalTip = "";
-			$scope.totalMeals = "";
+			$scope.totalMeals = "0";
 			$scope.totalAvgTip = "";
-
-			$scope.myForm.$setPristine();
 
 		};
 

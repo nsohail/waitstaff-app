@@ -1,0 +1,13 @@
+<!--My earnings info-->
+
+<div class="subbox earnings">
+
+	<div class="title">My Earnings Info</div>
+	<div class="input-title">Tip Total: {{totalTip | currency}}</div>
+	<div class="input-title">Meal Count: {{totalMeals}}</div>
+	<div class="input-title">Average Tip Per Meal: {{totalAvgTip | currency}}</div>
+</div>
+
+<div class="reset-area">
+	<input type="button" id="reset" value="Reset" ng-click="resetApp()">
+</div>

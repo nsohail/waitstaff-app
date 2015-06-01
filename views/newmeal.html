@@ -1,0 +1,31 @@
+<div class="box details">
+	<form name="myForm" ng-submit="submitForm()">
+
+		<div class="title">Enter the Meal Details</div>
+
+		<div class="input-title">Base Meal Price: $<input type="number" ng-model="baseprice" placeholder="0.00"required></div>
+		<div class="input-title">Tax Rate: %<input type="number" ng-model="taxrate" placeholder="0" required></div>
+		<div class="input-title">Tip Percentage: %<input type="number" ng-model="tippercent" placeholder="0" required></div>
+
+		<div class="submit-area">
+			<input type="submit" id="submit" value="Submit"/>
+			<input type="button" id="cancel" ng-click="cancelForm()" value="Cancel"/>
+		</div>
+
+	</form>
+
+</div>
+
+<!--Customer charges-->
+
+<div class="subbox charges">
+
+	<div class="title">Customer Charges</div>
+
+	<div class="input-title">Subtotal {{subtotal | currency}}</div>
+	<div class="input-title">Tip {{tip | currency}}</div>
+	<div class="total-section">
+		<div class="input-title">Total {{total | currency}}</div>
+	</div>
+
+</div>

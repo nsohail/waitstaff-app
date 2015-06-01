@@ -1,80 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <title>Waitstaff</title>
 
-      <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
-
       <link href="style.css" rel="stylesheet" type="style/css">
-
-      <script src="myApp.js"></script>
-
       <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
 
 </head>
 
-<body ng-app="myApp" ng-controller="myCtrl">
+<body>
 
-	<!--Meal details-->
-	<!--User inputs info here-->
+<!--Meal details-->
+<!--User inputs info here-->
+<h1>Waitstaff Calculator</h1>
 <div class="wrapper">
-
-	<div class="box details">
-		<form name="myForm" ng-submit="submitForm()">
-
-			<div class="title">Enter the Meal Details</div>
-
-			<div class="input-title">Base Meal Price: $<input type="number" ng-model="baseprice" placeholder="0.00"required></div>
-			<div class="input-title">Tax Rate: %<input type="number" ng-model="taxrate" placeholder="0" required></div>
-			<div class="input-title">Tip Percentage: %<input type="number" ng-model="tippercent" placeholder="0" required></div>
-
-			<div class="submit-area">
-
-				<input type="submit" id="submit" value="Submit"/>
-				<input type="button" id="cancel" ng-click="cancelForm()" value="Cancel"/>
-
-			</div>
-
-		</form>
-
-	</div>
+	<a href="#/">Home</a>
+	<a href="#/new-meal">New Meal</a>
+	<a href="#/my-earnings">My Earnings</a>
 
 	<div class="column-wrap">
-
-		<!--Customer charges-->
-
-		<div class="subbox charges">
-
-			<div class="title">Customer Charges</div>
-
-			<div class="input-title">Subtotal {{subtotal | currency}}</div>
-			<div class="input-title">Tip {{tip | currency}}</div>
-			<div class="total-section">
-				<div class="input-title">Total {{total | currency}}</div>
-			</div>
-
-
-		</div>
-
-
-		<!--My earnings info-->
-
-		<div class="subbox earnings">
-
-			<div class="title">My Earnings Info</div>
-			<div class="input-title">Tip Total: {{totalTip | currency}}</div>
-			<div class="input-title">Meal Count: {{totalMeals}}</div>
-			<div class="input-title">Average Tip Per Meal: {{totalAvgTip | currency}}</div>
-
-		</div>
-	</div>
-
-	<div class="reset-area">
-		<input type="button" id="reset" value="Reset" ng-click="resetApp()">
+		<div ng-view></div>
 	</div>
 
 </div>
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+<script src="myApp.js"></script>
+
 	
 </body>
 
